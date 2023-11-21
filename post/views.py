@@ -1,17 +1,29 @@
 from _datetime import datetime
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render
+from post.models import Product
+# def hello_view(request):
+#   if request.method == 'GET':
+#     return HttpResponse("Hello! Its my project,hjhj ")
+#
+# def current_date_view(request):
+#   if request.method == 'GET':
+#     current_date = datetime.now().strftime("%Y-%m-%d")
+#     return HttpResponse(f"Current date: {current_date}")
+#     # return HttpResponse(f'current date ')
+#
+# def goodbye_view(request):
+#   if request.method == 'GET':
+#     return HttpResponse("Goodbye user!")
 
-def hello_view(request):
+def main_view(request):
+  if request.method =='GET':
+    product = Product.objects.all()
+    return render(request, 'index.html')
+
+def products_view(request):
   if request.method == 'GET':
-    return HttpResponse("Hello! Its my project,hjhj ")
+    product = Product.objects.all()
 
-def current_date_view(request):
-  if request.method == 'GET':
-    current_date = datetime.now().strftime("%Y-%m-%d")
-    return HttpResponse(f"Current date: {current_date}")
-    # return HttpResponse(f'current date ')
+    context = {"products": product}
 
-def goodbye_view(request):
-  if request.method == 'GET':
-    return HttpResponse("Goodbye user!")
-
+    return render(request, 'products/products.html', context=context)

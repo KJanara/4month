@@ -9,6 +9,9 @@
       <p class="card-text">{{product.ingredients}};{{product.date_marking}}</p>
       <p class="card-text">{{product.net_weight}}</p>
       <a href="#" class="card-link">Card link</a>
+        {%for category in product.category.all%}
+          <a href="#" class="card-link"  > {{category.name}}</a>
+        {% endfor %}
     </div>
   </div>
 {% endfor %}

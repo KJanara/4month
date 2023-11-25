@@ -1,6 +1,6 @@
 from _datetime import datetime
 from django.shortcuts import HttpResponse, render
-from post.models import Product
+from post.models import Product, Category
 # def hello_view(request):
 #   if request.method == 'GET':
 #     return HttpResponse("Hello! Its my project,hjhj ")
@@ -27,3 +27,12 @@ def products_view(request):
     context = {"products": product}
 
     return render(request, 'products/products.html', context=context)
+
+
+def category_view(request):
+  if request.method == 'GET':
+    category = Category.objects.all()
+
+    context = {"categories": category}
+
+    return render(request, 'products/categories.html', context=context)

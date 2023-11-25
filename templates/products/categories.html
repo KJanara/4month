@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block content %}
+<h2>
+  category
+</h2>
+  {% for category in categories %}
+          <a href="#"  class="card-text"> {{category.name}}</a>
+{% endfor%}
+
+
+
+{% endblock %}

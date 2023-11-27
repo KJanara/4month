@@ -3,12 +3,11 @@
 {% block content%}
   {% for product in products %}
   <div class="card" style="width: 17rem;">
+    <img src="/media/{{product.image}}" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{product.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{product.price}}</h6>
-      <p class="card-text">{{product.ingredients}};{{product.date_marking}}</p>
-      <p class="card-text">{{product.net_weight}}</p>
-      <a href="#" class="card-link">Card link</a>
+      <a href="/products/{{product.id}}" class="card-link">More</a>
         {%for category in product.category.all%}
           <a href="#" class="card-link"  > {{category.name}}</a>
         {% endfor %}

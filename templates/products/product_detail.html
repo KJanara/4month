@@ -1,0 +1,33 @@
+{% extends 'index.html'%}
+
+{% block content %}
+  <div class="card" style="width: 17rem;">
+    <img src="/media/{{product.image}}" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{product.price}}</h6>
+      <p class="card-text">{{product.ingredients}};{{product.date_marking}}</p>
+      <p class="card-text">{{product.net_weight}}</p>
+      <p class="card-text"> {{product.category}}</p>
+
+      <h5> Review
+      </h5>
+      {% for review in product.reviews.all %}
+      <p class="card-text"> {{review.text}}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+<style>
+    body {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+     .card {
+      width: 35rem;}
+  </style>
+
+{% endblock%}
+<!--{{product.net_weight}} {{product.date_marking}} {{product.category}}-->

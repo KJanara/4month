@@ -1,6 +1,6 @@
-from _datetime import datetime
+# from _datetime import datetime
 from django.shortcuts import HttpResponse, render
-from post.models import Product, Category
+from post.models import Product, Category, Review
 # def hello_view(request):
 #   if request.method == 'GET':
 #     return HttpResponse("Hello! Its my project,hjhj ")
@@ -36,3 +36,20 @@ def category_view(request):
     context = {"categories": category}
 
     return render(request, 'products/categories.html', context=context)
+
+def product_detail_view(request, p_id):
+  if request.method == 'GET':
+    try:
+      product = Product.objects.get(id=p_id)
+    except Product.DoesNotExist:
+      return HttpResponse('Page not found')
+    context = {"product": product}
+
+    return render(request, 'products/product_detail.html', context=context)
+
+def review_view(request):
+  if request.method == 'GET':
+    review = Review.objects.all()
+
+    context = {"reviews": review}
+  return render(request, 'products/product_detail.html', context=context)

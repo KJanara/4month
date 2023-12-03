@@ -18,16 +18,22 @@
     </div>
   </div>
 
-<style>
-    body {
-      display: flex;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-     .card {
-      width: 35rem;}
-  </style>
+<!--<style>-->
+<!--    body {-->
+<!--      display: flex;-->
+<!--      justify-content: left;-->
+<!--      height: 100vh;-->
+<!--      margin: 0;-->
+<!--    }-->
+<!--     .card {-->
+<!--      width: 35rem;}-->
+<!--  </style>-->
 
+<h2>create review</h2>
+ <form action="" method="POST" enctype="multipart/form-data">
+   {% csrf_token %}
+   {{form}}
+   <input type="submit" value="create">
+ </form>
 {% endblock%}
 <!--{{product.net_weight}} {{product.date_marking}} {{product.category}}-->

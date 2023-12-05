@@ -1,22 +1,11 @@
 from django.contrib import admin
-from django.urls import path
-from post import views
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('hello/', views.hello_view),
-    # path('current_date/', views.current_date_view),
-    # path('goodbye/', views.goodbye_view),
-    path('', views.main_view),
-    path('products/', views.products_view),
-    path('category/', views.category_view),
-    path('category/create/', views.category_create),
-    path('products/create/', views.product_create),
-    path('products/<int:p_id>/', views.product_detail_view),
-    path('products/', views.review_create),
-    path('review/', views.review_view)
+    path('', include('post.urls')),
+    path('', include('users.urls')),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

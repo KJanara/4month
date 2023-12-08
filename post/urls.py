@@ -13,7 +13,8 @@ urlpatterns = [
     path('category/create/', views.category_create),
     path('products/create/', views.product_create),
     path('products/<int:p_id>/', views.product_detail_view),
+    path('products/<int:p_id>/update/', views.product_update_view),
     path('products/', views.review_create),
-    path('review/', views.review_view)
+    path('review/', views.review_view),
 
 ]

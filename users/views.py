@@ -53,3 +53,5 @@ def profile_view(request):
       'users/profile.html',
       context={"user": request.user}
     )
+
+

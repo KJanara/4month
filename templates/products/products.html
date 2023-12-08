@@ -1,6 +1,11 @@
 {% extends 'index.html'%}
 
 {% block content%}
+ <form action="/products/" method="GET">
+   <input type="text" name="search" placeholder="Search">
+   <input type="submit" value="Search">
+ </form>
+
   {% for product in products %}
   <div class="card" style="width: 17rem;">
     <img src="/media/{{product.image}}" alt="...">
@@ -14,5 +19,8 @@
     </div>
   </div>
 {% endfor %}
+   {% for page in pages %}
+<a href="?page={{ page }}" methods="GET"><h2>{{ page }}</h2></a>
 
+   {% endfor %}
 {% endblock %}

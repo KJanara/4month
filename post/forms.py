@@ -9,6 +9,11 @@ class ProductCreateForm(forms.Form):
   ingredients = forms.CharField(widget=forms.Textarea)
   image = forms.ImageField()
 
+class ProductCreateForm2(forms.ModelForm):
+  class Meta:
+    model = Product
+    fields = ['name', 'price','ingredients', 'image']
+
 class  CategoryCreateForm(forms.Form):
   name = forms.CharField(max_length=100)
 
